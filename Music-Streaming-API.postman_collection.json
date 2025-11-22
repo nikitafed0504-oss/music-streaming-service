@@ -1,0 +1,178 @@
+{
+  "info": {
+    "name": "Music Streaming API",
+    "description": "Complete API collection for Music Streaming Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "http://localhost:9090/health"
+      }
+    },
+    {
+      "name": "CRUD - Artists",
+      "item": [
+        {
+          "name": "Get All Artists",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:9090/api/artists"
+          }
+        },
+        {
+          "name": "Create Artist",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Adele\",\n  \"genre\": \"Pop\"\n}"
+            },
+            "url": "http://localhost:9090/api/artists"
+          }
+        },
+        {
+          "name": "Get Artist by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:9090/api/artists/1"
+          }
+        },
+        {
+          "name": "Update Artist",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"The Beatles Updated\",\n  \"genre\": \"Rock & Roll\"\n}"
+            },
+            "url": "http://localhost:9090/api/artists/1"
+          }
+        },
+        {
+          "name": "Delete Artist",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "http://localhost:9090/api/artists/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Business Operations",
+      "item": [
+        {
+          "name": "Create Album with Tracks",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"album\": {\n    \"title\": \"New Album 2024\",\n    \"releaseYear\": 2024,\n    \"artist\": {\n      \"id\": 1\n    }\n  },\n  \"tracks\": [\n    {\n      \"title\": \"New Track 1\",\n      \"duration\": 180\n    },\n    {\n      \"title\": \"New Track 2\", \n      \"duration\": 210\n    }\n  ]\n}"
+            },
+            "url": "http://localhost:9090/api/music/operations/albums/with-tracks"
+          }
+        },
+        {
+          "name": "Get User Statistics",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:9090/api/music/operations/users/1/statistics"
+          }
+        },
+        {
+          "name": "Copy Playlist",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"newPlaylistName\": \"My Rock Copy\",\n  \"targetUserId\": 2\n}"
+            },
+            "url": "http://localhost:9090/api/music/operations/playlists/1/copy"
+          }
+        },
+        {
+          "name": "Get Recommended Tracks",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:9090/api/music/operations/users/1/recommendations"
+          }
+        },
+        {
+          "name": "Search Music",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:9090/api/music/operations/search?query=beatles&genre=Rock&minDuration=100&maxDuration=300"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Playlist Operations",
+      "item": [
+        {
+          "name": "Add Track to Playlist",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": "http://localhost:9090/api/playlists/1/tracks/5"
+          }
+        },
+        {
+          "name": "Remove Track from Playlist",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": "http://localhost:9090/api/playlists/1/tracks/5"
+          }
+        },
+        {
+          "name": "Get User Playlists",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": "http://localhost:9090/api/playlists/user/1"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:9090"
+    }
+  ]
+}
