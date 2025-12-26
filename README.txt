@@ -228,3 +228,15 @@ text
 DELETE http://localhost:9090/api/playlists/1/tracks/1
 
 URL: http://localhost:9090/api/artists/1
+бизнес операции
+GET /api/tracks/genre/{genre} - треки по жанру
+
+GET /api/users/{userId}/stats - статистика пользователя
+
+GET /api/tracks/search?query={query} - поиск треков
+
+POST /api/playlists/{playlistId}/tracks/{trackId} - добавить трек в плейлист
+
+DELETE /api/playlists/{playlistId}/tracks/{trackId} - удалить трек из плейлиста
+
+PUT /api/playlists/{playlistId}/tracks/{trackId}/reorder - изменить порядок треков
